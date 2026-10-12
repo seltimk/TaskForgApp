@@ -154,19 +154,21 @@ function getTasks() {
         TaskList.appendChild(clone);
         totalTask.innerHTML = saveObj.length;
 
-        saveObj.forEach(()=>{
+        saveObj.forEach(() => {
 
-       let completeTrue=[];
-       if (completed){
+            let completeTrue = [];
+            if (completed) {
 
-        completeTrue.push(completed)
+                completeTrue.push(completed)
 
-         completed.innerHTML = completeTrue.length;
-       }
+                
+            }
+
+            completed.innerHTML = completeTrue.length;
 
 
-     })
-    
+        })
+
 
     });
 }
@@ -300,21 +302,29 @@ taskList.addEventListener("click", function (event) {
 
 
     taskElement.remove();
-     totalTask.innerHTML = saveObj.length;
+    totalTask.innerHTML = saveObj.length;
 
-     saveObj.forEach(()=>{
+    for (let i = 0; i < saveObj.length; i++) {
+        
+           let completeTrue = [];
 
-       let completeTrue=[];
-       if (completed){
+        if (saveObj[i].completed===true) {
 
-        completeTrue.push(completed)
+           completeTrue.push(saveObj[i].idgi)
 
-         completed.innerHTML = completeTrue.length;
-       }
+            
+        }
+
+        completed.innerHTML = completeTrue.length;
+    }
+
+    // saveObj.forEach(() => {
+
+     
 
 
-     })
-    
+    // })
+
 
 });
 
