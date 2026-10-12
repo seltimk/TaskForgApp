@@ -122,7 +122,9 @@ const priority = document.getElementById("task-priority").value;
 
 const deleteTaskBtn = document.getElementById("delete-task-btn");
 const totalTask = document.getElementById("stat-total");
-const completed = document.getElementById("stat-completed");
+const statCompleted = document.getElementById("stat-completed");
+const statPending = document.getElementById("stat-pending");
+const noResults = document.getElementById("no-results");
 
 // Load saved tasks. Use sampleTasks only on the first visit.
 let saveObj = JSON.parse(localStorage.getItem("sampleTasks"));
@@ -130,6 +132,21 @@ let saveObj = JSON.parse(localStorage.getItem("sampleTasks"));
 if (saveObj === null) {
     saveObj = sampleTasks;
     localStorage.setItem("sampleTasks", JSON.stringify(saveObj));
+}
+
+function noResultFunc(){
+
+    if (saveObj.length===0) {
+
+    noResults.style.display = "block";
+    document.getElementById("filter-check").style.display="none";
+    
+}
+
+else{
+
+    noResults.style.display = "none";
+}
 }
 
 // Display all tasks.
@@ -154,20 +171,9 @@ function getTasks() {
         TaskList.appendChild(clone);
         totalTask.innerHTML = saveObj.length;
 
-        saveObj.forEach(() => {
-
-            let completeTrue = [];
-            if (completed) {
-
-                completeTrue.push(completed)
-
-                
-            }
-
-            completed.innerHTML = completeTrue.length;
-
-
-        })
+      
+noResultFunc();
+     
 
 
     });
@@ -238,14 +244,13 @@ submitTask.addEventListener("click", function (event) {
 closeModalBtn.addEventListener("click", (event) => {
     event.preventDefault();
     taskModal.style.display = "none";
+
+    noResultFunc();
 });
 
 // Cancel modal
 
 cancelModal.addEventListener("click", () => {
-
-
-
     const currentTitle = title.value;
     const currentDescription = description.value;
     const currentCategory = category.value;
@@ -261,7 +266,6 @@ cancelModal.addEventListener("click", () => {
 
     console.log(currentCategory)
 })
-
 
 // dark and lightmode
 
@@ -290,46 +294,54 @@ taskList.addEventListener("click", function (event) {
     const deleteBtn = event.target.closest('[data-action="delete"]');
 
     if (!deleteBtn) return;
-
     const taskElement = deleteBtn.closest(".task-item");
     const taskId = taskElement.dataset.id;
-
-
     saveObj = saveObj.filter(task => String(task.id) !== taskId);
-
-
     localStorage.setItem("sampleTasks", JSON.stringify(saveObj));
-
-
     taskElement.remove();
     totalTask.innerHTML = saveObj.length;
 
     for (let i = 0; i < saveObj.length; i++) {
-        
-           let completeTrue = [];
 
-        if (saveObj[i].completed===true) {
+        let completeTrue = [];
 
-           completeTrue.push(saveObj[i].idgi)
+        if (saveObj[i].completed === true) {
 
-            
+            completeTrue.push(saveObj[i].id)
+
+
         }
 
-        completed.innerHTML = completeTrue.length;
+        statCompleted.innerHTML = completeTrue.length;
+        statPending.innerHTML = pending.length;
+
     }
 
-    // saveObj.forEach(() => {
-
-     
-
-
-    // })
-
+    noResultFunc();
 
 });
 
-function statFunc() {
 
-}
+noResultFunc();
 
 // statFunc();
+
+   // saveObj.forEach(() => {
+
+           
+//    let completeTrue = [];
+//          let pending= [];
+//             if (task.completed) {
+
+//                 completeTrue.push(completed)
+//             }
+
+//             else{
+
+//                 pending.push()(completed)
+//             }
+
+//             statCompleted.innerHTML = completeTrue.length;
+//             statPending.innerHTML = pending.length;
+
+//          })
