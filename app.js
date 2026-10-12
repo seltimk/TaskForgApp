@@ -32,7 +32,7 @@ const sampleTasks = [
     },
 
      {
-        id: 1,
+        id: 4,
         title: "Learn DOM Manipulation",
         description: "Practice JavaScript DOM methods and understand how elements are created and modified.",
         category: "School",
@@ -43,7 +43,7 @@ const sampleTasks = [
     },
 
     {
-        id: 2,
+        id: 5,
         title: "Build TaskForge Dashboard",
         description: "Create the main interface for the TaskForge task management application.",
         category: "Frontend",
@@ -53,7 +53,7 @@ const sampleTasks = [
     },
 
     {
-        id: 3,
+        id: 6,
         title: "Study Node.js",
         description: "Learn how Node.js works and practice creating simple backend applications.",
         category: "Backend",
@@ -63,7 +63,7 @@ const sampleTasks = [
     },
 
      {
-        id: 1,
+        id: 7,
         title: "Learn DOM Manipulation",
         description: "Practice JavaScript DOM methods and understand how elements are created and modified.",
         category: "School",
@@ -74,7 +74,7 @@ const sampleTasks = [
     },
 
     {
-        id: 2,
+        id: 8,
         title: "Build TaskForge Dashboard",
         description: "Create the main interface for the TaskForge task management application.",
         category: "Frontend",
@@ -84,7 +84,7 @@ const sampleTasks = [
     },
 
     {
-        id: 3,
+        id: 9,
         title: "Study Node.js",
         description: "Learn how Node.js works and practice creating simple backend applications.",
         category: "Backend",
@@ -94,7 +94,7 @@ const sampleTasks = [
     },
 
      {
-        id: 3,
+        id: 10,
         title: "Study Node.js",
         description: "Learn how Node.js works and practice creating simple backend applications.",
         category: "Backend",
