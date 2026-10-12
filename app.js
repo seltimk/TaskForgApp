@@ -90,7 +90,7 @@ const sampleTasks = [
         category: "Backend",
         priority: "Medium",
         dueDate: "2026-10-15",
-        completed: false
+        completed: true
     },
 
     {
@@ -100,7 +100,7 @@ const sampleTasks = [
         category: "Backend",
         priority: "Medium",
         dueDate: "2026-10-15",
-        completed: false
+        completed: true
     }
 ];
 
@@ -153,7 +153,7 @@ function getTasks() {
 
         TaskList.appendChild(clone);
         totalTask.innerHTML = saveObj.length;
-        
+
         saveObj.forEach(()=>{
 
        let completeTrue=[];
