@@ -31,7 +31,7 @@ const sampleTasks = [
         completed: false
     },
 
-     {
+    {
         id: 4,
         title: "Learn DOM Manipulation",
         description: "Practice JavaScript DOM methods and understand how elements are created and modified.",
@@ -62,7 +62,7 @@ const sampleTasks = [
         completed: false
     },
 
-     {
+    {
         id: 7,
         title: "Learn DOM Manipulation",
         description: "Practice JavaScript DOM methods and understand how elements are created and modified.",
@@ -93,7 +93,7 @@ const sampleTasks = [
         completed: false
     },
 
-     {
+    {
         id: 10,
         title: "Study Node.js",
         description: "Learn how Node.js works and practice creating simple backend applications.",
@@ -121,6 +121,8 @@ const category = document.getElementById("task-category").value;
 const priority = document.getElementById("task-priority").value;
 
 const deleteTaskBtn = document.getElementById("delete-task-btn");
+const totalTask = document.getElementById("stat-total");
+const completed = document.getElementById("stat-completed");
 
 // Load saved tasks. Use sampleTasks only on the first visit.
 let saveObj = JSON.parse(localStorage.getItem("sampleTasks"));
@@ -137,7 +139,7 @@ function getTasks() {
     saveObj.forEach(function (task) {
         const clone = template.content.cloneNode(true);
 
-       
+
         const taskElement = clone.querySelector(".task-item");
 
         taskElement.dataset.id = task.id;
@@ -150,6 +152,22 @@ function getTasks() {
         clone.querySelector(".task-description").textContent = task.description;
 
         TaskList.appendChild(clone);
+        totalTask.innerHTML = saveObj.length;
+        
+        saveObj.forEach(()=>{
+
+       let completeTrue=[];
+       if (completed){
+
+        completeTrue.push(completed)
+
+         completed.innerHTML = completeTrue.length;
+       }
+
+
+     })
+    
+
     });
 }
 
@@ -174,7 +192,7 @@ submitTask.addEventListener("click", function (event) {
     const category = document.getElementById("task-category").value;
     const priority = document.getElementById("task-priority").value;
 
-    if (title=== "" || description === ""  ||category==="" || priority===""){
+    if (title === "" || description === "" || category === "" || priority === "") {
         alert("Please enter valid input.");
         return;
     }
@@ -250,10 +268,10 @@ const themeToggleBtn = document.getElementById("theme-toggle");
 
 if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", () => {
-      
+
         document.documentElement.classList.toggle("dark");
 
-      
+
         if (document.documentElement.classList.contains("dark")) {
             localStorage.setItem("theme", "dark");
         } else {
@@ -261,6 +279,8 @@ if (themeToggleBtn) {
         }
     });
 }
+
+// delete btn
 
 const taskList = document.getElementById("task-list");
 
@@ -272,12 +292,34 @@ taskList.addEventListener("click", function (event) {
     const taskElement = deleteBtn.closest(".task-item");
     const taskId = taskElement.dataset.id;
 
-  
+
     saveObj = saveObj.filter(task => String(task.id) !== taskId);
 
-   
+
     localStorage.setItem("sampleTasks", JSON.stringify(saveObj));
 
-   
+
     taskElement.remove();
+     totalTask.innerHTML = saveObj.length;
+
+     saveObj.forEach(()=>{
+
+       let completeTrue=[];
+       if (completed){
+
+        completeTrue.push(completed)
+
+         completed.innerHTML = completeTrue.length;
+       }
+
+
+     })
+    
+
 });
+
+function statFunc() {
+
+}
+
+// statFunc();
