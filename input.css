@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+
+
+
+/* =========================================================
+   TaskForge – state classes
+   Your JS adds/removes/toggles these on each .task-item
+   ========================================================= */
+
+/* ---------- Task state (on the <li class="task-item">) ---------- */
+.task-item { border-left: 4px solid transparent; transition: opacity .15s, border-color .15s; }
+
+.task-item.completed { opacity: .65; border-left-color: #10b981; }
+.task-item.completed .task-title,
+.task-item.completed .task-description { text-decoration: line-through; }
+
+.task-item.pending { border-left-color: #f59e0b; }
+
+.task-item.overdue { border-left-color: #ef4444; background-color: #fef2f2; }
+.dark .task-item.overdue { background-color: #2a1215; }
+
+/* ---------- Priority badge (on .task-priority) ---------- */
+.task-priority.low      { background: #dcfce7; color: #166534; }
+.task-priority.medium   { background: #dbeafe; color: #1e40af; }
+.task-priority.high     { background: #ffedd5; color: #9a3412; }
+.task-priority.critical { background: #fee2e2; color: #991b1b; }
+
+.dark .task-priority.low      { background: #14532d; color: #bbf7d0; }
+.dark .task-priority.medium   { background: #1e3a8a; color: #bfdbfe; }
+.dark .task-priority.high     { background: #7c2d12; color: #fed7aa; }
+.dark .task-priority.critical { background: #7f1d1d; color: #fecaca; }
+
+/* ---------- Status badge (on .task-status) ---------- */
+.task-status.completed { background: #d1fae5; color: #065f46; }
+.task-status.pending   { background: #fef3c7; color: #92400e; }
+.task-status.overdue   { background: #fee2e2; color: #991b1b; }
+
+.dark .task-status.completed { background: #064e3b; color: #a7f3d0; }
+.dark .task-status.pending   { background: #78350f; color: #fde68a; }
+.dark .task-status.overdue   { background: #7f1d1d; color: #fecaca; }
+
+/* ---------- Modals ---------- */
+/* JS: modal.classList.remove('hidden'); modal.classList.add('flex'); */
+
+/* ---------- Form validation ---------- */
+/* JS: input.classList.add('input-invalid') */
+.input-invalid { border-color: #ef4444 !important; }
+
+/* ---------- Drag and drop (bonus) ---------- */
+.task-item.dragging  { opacity: .4; }
+.task-item.drag-over { border-top: 2px dashed #6366f1; }
