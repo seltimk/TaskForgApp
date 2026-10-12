@@ -29,6 +29,78 @@ const sampleTasks = [
         priority: "Medium",
         dueDate: "2026-10-15",
         completed: false
+    },
+
+     {
+        id: 1,
+        title: "Learn DOM Manipulation",
+        description: "Practice JavaScript DOM methods and understand how elements are created and modified.",
+        category: "School",
+        priority: "High",
+        dueDate: "2026-10-10",
+        completed: false,
+        taskDue: new Date().toISOString()
+    },
+
+    {
+        id: 2,
+        title: "Build TaskForge Dashboard",
+        description: "Create the main interface for the TaskForge task management application.",
+        category: "Frontend",
+        priority: "Critical",
+        dueDate: "2026-10-09",
+        completed: false
+    },
+
+    {
+        id: 3,
+        title: "Study Node.js",
+        description: "Learn how Node.js works and practice creating simple backend applications.",
+        category: "Backend",
+        priority: "Medium",
+        dueDate: "2026-10-15",
+        completed: false
+    },
+
+     {
+        id: 1,
+        title: "Learn DOM Manipulation",
+        description: "Practice JavaScript DOM methods and understand how elements are created and modified.",
+        category: "School",
+        priority: "High",
+        dueDate: "2026-10-10",
+        completed: false,
+        taskDue: new Date().toISOString()
+    },
+
+    {
+        id: 2,
+        title: "Build TaskForge Dashboard",
+        description: "Create the main interface for the TaskForge task management application.",
+        category: "Frontend",
+        priority: "Critical",
+        dueDate: "2026-10-09",
+        completed: false
+    },
+
+    {
+        id: 3,
+        title: "Study Node.js",
+        description: "Learn how Node.js works and practice creating simple backend applications.",
+        category: "Backend",
+        priority: "Medium",
+        dueDate: "2026-10-15",
+        completed: false
+    },
+
+     {
+        id: 3,
+        title: "Study Node.js",
+        description: "Learn how Node.js works and practice creating simple backend applications.",
+        category: "Backend",
+        priority: "Medium",
+        dueDate: "2026-10-15",
+        completed: false
     }
 ];
 
