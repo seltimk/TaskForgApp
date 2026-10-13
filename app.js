@@ -126,6 +126,7 @@ const statCompleted = document.getElementById("stat-completed");
 const statPending = document.getElementById("stat-pending");
 const noResults = document.getElementById("no-results");
 
+
 // Load saved tasks. Use sampleTasks only on the first visit.
 let saveObj = JSON.parse(localStorage.getItem("sampleTasks"));
 
@@ -300,18 +301,11 @@ taskList.addEventListener("click", function (event) {
     localStorage.setItem("sampleTasks", JSON.stringify(saveObj));
     taskElement.remove();
     totalTask.innerHTML = saveObj.length;
-
     for (let i = 0; i < saveObj.length; i++) {
-
         let completeTrue = [];
-
         if (saveObj[i].completed === true) {
-
-            completeTrue.push(saveObj[i].id)
-
-
+         completeTrue.push(saveObj[i].id)
         }
-
         statCompleted.innerHTML = completeTrue.length;
         statPending.innerHTML = pending.length;
 
@@ -323,6 +317,26 @@ taskList.addEventListener("click", function (event) {
 
 
 noResultFunc();
+
+//    selectin all checkboxes
+    const allCheckBox= document.querySelector("#select-all");
+ 
+    allCheckBox.addEventListener("change", ()=>{
+
+        const checkBox= document.querySelectorAll(".task-checkbox");
+        checkBox.forEach( (checkbox)=>{
+            checkbox.checked=allCheckBox.checked;
+        })
+    })
+
+
+
+
+
+
+
+
+
 
 // statFunc();
 
