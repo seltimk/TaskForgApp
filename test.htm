@@ -21,3 +21,51 @@ if (
         <button type="button" id="undo-btn"
             class="font-semibold text-indigo-300 hover:underline dark:text-indigo-600">Undo</button>
     </div>
+
+
+
+
+    // SORT TASKS
+    const priorityRank = {
+        low: 1,
+        medium: 2,
+        high: 3,
+        critical: 4
+    };
+
+    filteredTasks.sort(function (a, b) {
+
+        switch (sortValue) {
+
+            case "newest":
+                return Number(b.id) - Number(a.id);
+
+            case "oldest":
+                return Number(a.id) - Number(b.id);
+
+            case "az":
+                return a.title.localeCompare(b.title);
+
+            case "za":
+                return b.title.localeCompare(a.title);
+
+            case "priority-high":
+                return priorityRank[b.priority.toLowerCase()] -
+                    priorityRank[a.priority.toLowerCase()];
+
+            case "priority-low":
+                return priorityRank[a.priority.toLowerCase()] -
+                    priorityRank[b.priority.toLowerCase()];
+
+            case "due-closest":
+                return (a.dueDate || "9999-12-31")
+                    .localeCompare(b.dueDate || "9999-12-31");
+
+            case "due-furthest":
+                return (b.dueDate || "")
+                    .localeCompare(a.dueDate || "");
+
+            default:
+                return 0;
+        }
+    });
